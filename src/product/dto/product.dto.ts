@@ -22,10 +22,8 @@ export class ProductDto {
   largeImage: string;
 
   @Allow()
-  @IsNumber()
   discount: number;
 
   @Allow()
-  @IsNumber()
   discountAmount: number;
 }

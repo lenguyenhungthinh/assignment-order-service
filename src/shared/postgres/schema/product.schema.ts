@@ -21,7 +21,7 @@ export const ProductSchema = new EntitySchema<Product>({
       name: 'name',
     },
     price: {
-      type: Number,
+      type: 'decimal',
       nullable: false,
       name: 'price',
       default: 0,
@@ -43,12 +43,12 @@ export const ProductSchema = new EntitySchema<Product>({
       nullable: true,
     },
     discount: {
-      type: Number,
+      type: 'decimal',
       nullable: true,
       default: 0,
     },
     discountAmount: {
-      type: Number,
+      type: 'decimal',
       nullable: true,
       default: 0,
     },

@@ -34,34 +34,3 @@ export class ProductController {
     return this.productService.delete(id);
   }
 }
-
-//help me create body post
-// {
-//   "name": "kayak",
-//   "price": 1000,
-//   "description": "kayak kayak kayak ka",
-//   "image": "https://https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "largeImage": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "discount": 0,
-//   "discountAmount": 0
-// }
-//help me create another body post
-// {
-//   "name": "basketball",
-//   "price": 1000,
-//   "description": "basketball basketball basketball",
-//   "image": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "largeImage": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "discount": 0,
-//   "discountAmount": 0
-// }
-//help me create another body post
-// {
-//   "name": "football",
-//   "price": 1000,
-//   "description": "football football football",
-//   "image": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "largeImage": "https://images.pexels.com/photos/241044/pexels-photo-241044.jpeg",
-//   "discount": 0,
-//   "discountAmount": 0
-// }
