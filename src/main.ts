@@ -29,7 +29,7 @@ async function bootstrap() {
     configure(app);
 
     await startHttp(app);
-    await startEvent(app);
+    // await startEvent(app);
 
     logAppPath(app, logger);
   } catch (error) {
@@ -68,6 +68,7 @@ async function startHttp(app: INestApplication) {
   await app.listen(configService.get('PORT', '3000'));
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function startEvent(app: INestApplication) {
   const configService = app.get(ConfigService);
   app.connectMicroservice(
