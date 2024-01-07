@@ -29,7 +29,7 @@ async function bootstrap() {
     configure(app);
 
     await startHttp(app);
-    // await startEvent(app);
+    await startEvent(app);
 
     logAppPath(app, logger);
   } catch (error) {
