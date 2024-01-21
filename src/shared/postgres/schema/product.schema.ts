@@ -26,22 +26,6 @@ export const ProductSchema = new EntitySchema<Product>({
       name: 'price',
       default: 0,
     },
-    description: {
-      type: String,
-      length: 255,
-      nullable: true,
-      name: 'description',
-    },
-    image: {
-      type: String,
-      length: 255,
-      nullable: true,
-    },
-    largeImage: {
-      type: String,
-      length: 255,
-      nullable: true,
-    },
     discount: {
       type: 'decimal',
       nullable: true,

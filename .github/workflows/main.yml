@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build Docker Image
-      run: docker build -t asia-southeast1-docker.pkg.dev/sinuous-axiom-390804/assignment-product/assignment-product:${{ github.sha }} .
+      run: docker build -t asia-southeast1-docker.pkg.dev/sinuous-axiom-390804/assignment-order/assignment-order:${{ github.sha }} .
 
     - id: 'auth'
       name: 'Authenticate to Google Cloud'
@@ -37,4 +37,29 @@ jobs:
 
     - name: Push Docker Image to Artifact Registry
       run: |
-        docker push asia-southeast1-docker.pkg.dev/sinuous-axiom-390804/assignment-product/assignment-product:${{ github.sha }}
+        docker push asia-southeast1-docker.pkg.dev/sinuous-axiom-390804/assignment-order/assignment-order:${{ github.sha }}
+
+    - name: Checkout Config Repo
+      uses: actions/checkout@v4
+      with:
+        repository: lenguyenhungthinh/assignment-config-service
+        ref: main
+        token: ${{ secrets.PAT_TOKEN }}
+
+    - name: Config Git
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Setup kustomize
+      uses: imranismail/setup-kustomize@v2
+
+    - name: Update the image
+      run: |
+        GCP_IMAGE_NAME="asia-southeast1-docker.pkg.dev/sinuous-axiom-390804/assignment-order/assignment-order:${{ github.sha }}"
+        REPO_PATH="apps/order-service/overlays/dev"
+        cd ${REPO_PATH}
+        kustomize edit set image order-service=${GCP_IMAGE_NAME}
+        git add .
+        git commit -m "Update image tag to `${{ github.sha }}`"
+        git push

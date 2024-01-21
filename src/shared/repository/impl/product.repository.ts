@@ -22,9 +22,9 @@ export class ProductRepositoryImpl implements ProductRepository {
     });
   }
 
-  async save(product: Product): Promise<void> {
+  async save(product: Product): Promise<Product> {
     product.id = randomUUID();
-    await this.repository.save(product);
+    return await this.repository.save(product);
   }
 
   async update(product: Product): Promise<void> {

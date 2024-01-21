@@ -55,5 +55,5 @@ function getLogLevel(configService: ConfigService<EnvironmentVariables>) {
     return logLevel.INFO;
   }
 
-  return logLevel.INFO;
+  return logLevel.ERROR;
 }
